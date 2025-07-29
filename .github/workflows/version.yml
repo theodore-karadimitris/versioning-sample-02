@@ -25,6 +25,9 @@ jobs:
         
       - name: Output NuGet Version V2
         run: echo "NuGetVersionV2=${{ steps.gitversion.outputs.nuGetVersionV2 }}"
-        
-      - name: Output SemVer
-        run: echo "Calculated version: ${{ steps.gitversion.outputs.SemVer }}"
+
+      - name: Output Git Version
+        run: echo "GitVersion=${{ steps.gitversion.outputs }}"
+
+#      - name: Output SemVer
+#        run: echo "Calculated version: ${{ steps.gitversion.outputs.SemVer }}"
