@@ -24,7 +24,7 @@ jobs:
         uses: gittools/actions/gitversion/execute@v0.10.2
         
       - name: Output version
-        run: echo "Calculated version: ${{ steps.gitversion.outputs.semVer }}"
+        run: echo "NuGetVersionV2=${{ steps.gitversion.outputs.nuGetVersionV2 }}"
         
- #     - name: Output version
- #       run: echo "NuGetVersionV2=${{ steps.gitversion.outputs.nuGetVersionV2 }}"
+      - name: Output version
+        run: echo "Calculated version: ${{ steps.gitversion.outputs.semVer }}"
