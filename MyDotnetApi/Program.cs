@@ -36,6 +36,8 @@ app.MapGet("/weatherforecast", () =>
 // Hello endpoint
 app.MapGet("/hello", () => "Hello!");
 
+app.MapGet("/goodmorning", () => "Good Morning!");
+
 app.MapGet("/goodnight", () => "Good Night!");
 
 app.Run();
