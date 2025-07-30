@@ -9,13 +9,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      
       - name: Setup GitVersion
         uses: gittools/actions/gitversion/setup@v0.10.2
         with:
-          versionSpec: '5.x'
+          versionSpec: '6.x'
+          
       - name: Determine version
         id: gitversion
         uses: gittools/actions/gitversion/execute@v0.10.2
-      - name: Output version
+        
+      - name: Output NuGet Version V2
         run: echo "NuGetVersionV2=${{ steps.gitversion.outputs.nuGetVersionV2 }}"
+
+      - name: Output Git Version as Json
+        run: echo "GitVersionJson=${{ toJson(steps.gitversion.outputs) }}"
+
+      - name: Output Git Version semVer
+        run: echo "GitVersion=${{ steps.gitversion.outputs.semVer }}"
+
+#      - name: Output SemVer
+#        run: echo "Calculated version: ${{ steps.gitversion.outputs.SemVer }}"
